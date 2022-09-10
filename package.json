@@ -5,6 +5,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "NODE_ENV=development webpack serve --open",
+    "build:dev": "rm -rf dist && NODE_ENV=development webpack",
     "build": "rm -rf dist && NODE_ENV=production webpack"
   },
   "devDependencies": {
