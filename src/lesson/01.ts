@@ -29,5 +29,6 @@ console.log('myAge:', myAge)
 // 模板字符串
 let sentence: string = `Hello, my name is ${myName}.
 I'll be ${myAge + 1} years old next month.`;
+console.log('sentence', sentence)
 
 export default {};
