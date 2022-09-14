@@ -1,11 +1,10 @@
 {
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src/**/*"],
   "compilerOptions": {
-    "target": "ES2015",
-    // "module": "ES2015",
+    "target": "ES5",
+    // "target": "ES2015",
     "module": "ESNext",
+    // "module": "ES2015",
     "strict": true, // 启用所有严格类型检查选项
     "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
     "alwaysStrict": true, // 以严格模式检查模块，并在每个文件里加入 'use strict'
