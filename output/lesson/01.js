@@ -17,8 +17,8 @@ console.log('111');
 // 3.string字符串
 var myName = 'Tom';
 var myAge = 25;
-console.log('myName', myName);
-console.log('myAge', myAge);
+console.log('myName:', myName);
+console.log('myAge:', myAge);
 // 模板字符串
 var sentence = "Hello, my name is " + myName + ".\nI'll be " + (myAge + 1) + " years old next month.";
 export default {};
