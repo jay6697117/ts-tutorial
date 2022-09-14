@@ -5,15 +5,17 @@ console.log('createdByNewBoolean :>> ', createdByNewBoolean);
 let createdByBoolean: boolean = Boolean(1);
 console.log('createdByBoolean :>> ', createdByBoolean); */
 // 2.number 数值
-var decLiteral = 6;
-var hexLiteral = 0xf00d;
+/*
+let decLiteral: number = 6;
+let hexLiteral: number = 0xf00d;
 // ES6 中的二进制表示法
-var binaryLiteral = 10;
+let binaryLiteral: number = 0b1010;
 // ES6 中的八进制表示法
-var octalLiteral = 484;
-var notANumber = NaN;
-var infinityNumber = Infinity;
+let octalLiteral: number = 0o744;
+let notANumber: number = NaN;
+let infinityNumber: number = Infinity;
 console.log('111');
+*/
 // 3.string字符串
 var myName = 'Tom';
 var myAge = 25;
