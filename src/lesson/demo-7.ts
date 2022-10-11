@@ -88,21 +88,38 @@ export {};
 
 // 5.参数默认值
 // 在 ES6 中，我们允许给函数的参数添加默认值，TypeScript 会将添加了默认值的参数识别为可选参数：
-function buildName(firstName: string = 'Tom6', lastName: string = 'Cat6') {
-  return firstName + ' ' + lastName;
-}
-let tomcat = buildName('Tom', 'Cat');
-let catNo = buildName('Tom');
-let allNo = buildName();
-let tomUnde = buildName(undefined, 'Cat');
-let catUnde = buildName('Tom', undefined);
-let allUnde = buildName(undefined, undefined);
+// function buildName(firstName: string = 'Tom6', lastName: string = 'Cat6') {
+//   return firstName + ' ' + lastName;
+// }
+// let tomcat = buildName('Tom', 'Cat');
+// let catNo = buildName('Tom');
+// let allNo = buildName();
+// let tomUnde = buildName(undefined, 'Cat');
+// let catUnde = buildName('Tom', undefined);
+// let allUnde = buildName(undefined, undefined);
 
-console.log('tomcat :>> ', tomcat);
-console.log('catNo :>> ', catNo);
-console.log('allNo :>> ', allNo);
-console.log('tomUnde :>> ', tomUnde);
-console.log('catUnde :>> ', catUnde);
-console.log('allUnde :>> ', allUnde);
-
+// console.log('tomcat :>> ', tomcat);
+// console.log('catNo :>> ', catNo);
+// console.log('allNo :>> ', allNo);
+// console.log('tomUnde :>> ', tomUnde);
+// console.log('catUnde :>> ', catUnde);
+// console.log('allUnde :>> ', allUnde);
 // function buildName(firstName?: string, lastName?: string): string
+
+// 6.剩余参数
+// function push(array: any[], ...items: any[]) {
+//   console.log('array', array);
+//   console.log('items', items);
+//   items.forEach(function (item) {
+//     array.push(item);
+//   });
+//   return array;
+// }
+
+// let a: any[] = [];
+// let res = push(a, 1, 'a', false);
+// console.log('res', res);
+// 注意，rest 参数只能是最后一个参数
+
+
+// 7.重载
