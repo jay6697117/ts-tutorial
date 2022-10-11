@@ -52,14 +52,57 @@ export {};
 // 4.可选参数
 // 前面提到，输入多余的（或者少于要求的）参数，是不允许的。那么如何定义可选的参数呢？
 // 与接口中的可选属性类似，我们用 ? 表示可选的参数：
-function buildName(firstName: string, lastName?: string) {
-  if (lastName) {
-    return firstName + ' : ' + lastName;
-  } else {
-    return firstName;
-  }
+// function buildName(firstName: string, lastName?: string) {
+//   if (lastName) {
+//     return firstName + ' : ' + lastName;
+//   } else {
+//     return firstName;
+//   }
+// }
+// let tomcat = buildName('Tom', 'Cat');
+// let tom = buildName('Tom');
+// console.log('tomcat:', tomcat);
+// console.log('tom:', tom);
+
+// 需要注意的是，可选参数必须接在必需参数后面。换句话说，可选参数后面不允许再出现必需参数了：
+// function buildName(firstName?: string, lastName: string) {
+// function buildName(firstName?: string) {
+//   // if (firstName) {
+//   //   return firstName + ' ' + lastName;
+//   // } else {
+//   //   return lastName;
+//   // }
+//   if (firstName) {
+//     return firstName;
+//   } else {
+//     return '空';
+//   }
+// }
+// let tom = buildName('Tom'); //string
+// let unde = buildName(undefined); //undefined
+// let noparam = buildName(); //undefined
+// console.log('tom :>> ', tom);
+// console.log('unde :>> ', unde);
+// console.log('noparam :>> ', noparam);
+// index.ts(1,40): error TS1016: A required parameter cannot follow an optional parameter.
+
+// 5.参数默认值
+// 在 ES6 中，我们允许给函数的参数添加默认值，TypeScript 会将添加了默认值的参数识别为可选参数：
+function buildName(firstName: string = 'Tom6', lastName: string = 'Cat6') {
+  return firstName + ' ' + lastName;
 }
 let tomcat = buildName('Tom', 'Cat');
-let tom = buildName('Tom');
-console.log('tomcat:', tomcat);
-console.log('tom:', tom);
+let catNo = buildName('Tom');
+let allNo = buildName();
+let tomUnde = buildName(undefined, 'Cat');
+let catUnde = buildName('Tom', undefined);
+let allUnde = buildName(undefined, undefined);
+
+console.log('tomcat :>> ', tomcat);
+console.log('catNo :>> ', catNo);
+console.log('allNo :>> ', allNo);
+console.log('tomUnde :>> ', tomUnde);
+console.log('catUnde :>> ', catUnde);
+console.log('allUnde :>> ', allUnde);
+
+// function buildName(firstName?: string, lastName?: string): string
