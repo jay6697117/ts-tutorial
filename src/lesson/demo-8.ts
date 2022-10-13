@@ -67,9 +67,9 @@ function swim(animal: Cat | Fish) {
 
 const tom: Cat | Fish = {
   name: 'Tom',
-  run() {
-    console.log('run');
-  },
+  // run() {
+  //   console.log('run');
+  // },
   swim() {
     console.log('swim');
   }
