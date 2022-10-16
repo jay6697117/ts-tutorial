@@ -84,26 +84,42 @@ class ApiError extends Error {
 class HttpError extends Error {
   statusCode: string = '';
 }
-function isApiError(error: Error) {
+
+interface ApiError extends Error {
+  code: number;
+}
+interface HttpError extends Error {
+  statusCode: string;
+}
+// let error = new ApiError('666');
+// console.dir(error)
+// console.log('error instanceof Error', error instanceof Error)
+
+function isApiErrorFn(error: Error) {
   if (typeof (error as ApiError).code === 'number') {
+  // if (error instanceof ApiError) {
     // return true;
-    return 111;
-  } else if (typeof (error as HttpError).statusCode === 'string') {
+    return 'ApiError 111';
+    } else if (typeof (error as HttpError).statusCode === 'string') {
+  // } else if (error instanceof HttpError) {
     // return true;
-    return 222;
+    return 'HttpError 222';
   }
-  return 333;
+  return 'Error 333';
   // return false;
 }
 const err1 = new Error('i am error 1');
 const err2 = new ApiError('i am error 2');
 const err3 = new HttpError('i am error 3');
-const res1 = isApiError(err1);
-const res2 = isApiError(err2);
-const res3 = isApiError(err3);
-console.log('err1:', err1);
+// console.dir(err1);
+// console.dir(err2);
+// console.dir(err3);
+const res1 = isApiErrorFn(err1);
+const res2 = isApiErrorFn(err2);
+const res3 = isApiErrorFn(err3);
+// console.log('err1:', err1);
 console.log('res1:', res1);
-console.log('err2:', err2);
+// console.log('err2:', err2);
 console.log('res2:', res2);
-console.log('err3:', err3);
+// console.log('err3:', err3);
 console.log('res3:', res3);
