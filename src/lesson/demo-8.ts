@@ -51,28 +51,29 @@ export {};
 // console.log('res1 :>> ', res1);
 // console.log('res2 :>> ', res2);
 
-interface Cat {
-  name: string;
-  run(): void;
-}
-interface Fish {
-  name: string;
-  swim(): void;
-}
-
-function swim(animal: Cat | Fish) {
-  (animal as Cat).run();
-  (animal as Fish).swim();
-}
-
-const tom: Cat | Fish = {
-  name: 'Tom',
-  // run() {
-  //   console.log('run');
-  // },
-  swim() {
-    console.log('swim');
-  }
-};
-swim(tom);
+// interface Cat {
+//   name: string;
+//   run(): void;
+// }
+// interface Fish {
+//   name: string;
+//   swim(): void;
+// }
+// function swim(animal?: Cat | Fish) {
+//   (animal as Cat).run();
+//   (animal as Fish).swim();
+// }
+// const tom: Cat | Fish = {
+//   name: 'Tom',
+//   run() {
+//     console.log('run');
+//   },
+//   swim() {
+//     console.log('swim');
+//   }
+// };
+// swim(tom);
 // Uncaught TypeError: animal.swim is not a function`
+// 总之，使用类型断言时一定要格外小心，尽量避免断言后调用方法或引用深层属性，以减少不必要的运行时错误。
+
+// 将一个父类断言为更加具体的子类
