@@ -76,4 +76,34 @@ export {};
 // Uncaught TypeError: animal.swim is not a function`
 // 总之，使用类型断言时一定要格外小心，尽量避免断言后调用方法或引用深层属性，以减少不必要的运行时错误。
 
-// 将一个父类断言为更加具体的子类
+// 3.将一个父类断言为更加具体的子类
+// 当类之间有继承关系时，类型断言也是很常见的：
+class ApiError extends Error {
+  code: number = 0;
+}
+class HttpError extends Error {
+  statusCode: string = '';
+}
+function isApiError(error: Error) {
+  if (typeof (error as ApiError).code === 'number') {
+    // return true;
+    return 111;
+  } else if (typeof (error as HttpError).statusCode === 'string') {
+    // return true;
+    return 222;
+  }
+  return 333;
+  // return false;
+}
+const err1 = new Error('i am error 1');
+const err2 = new ApiError('i am error 2');
+const err3 = new HttpError('i am error 3');
+const res1 = isApiError(err1);
+const res2 = isApiError(err2);
+const res3 = isApiError(err3);
+console.log('err1:', err1);
+console.log('res1:', res1);
+console.log('err2:', err2);
+console.log('res2:', res2);
+console.log('err3:', err3);
+console.log('res3:', res3);
