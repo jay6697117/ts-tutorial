@@ -156,5 +156,50 @@ export {};
 // console.log('res2:', res2);
 // console.log('res3:', res3);
 
-
 // 4.将任何一个类型断言为 any
+// const foo:number = 666;
+// const foo:string = '666';
+// console.log(foo,(foo as any).length);
+// 此时我们可以使用 as any 临时将 foo 断言为 any 类型：
+// 在 any 类型的变量上，访问任何属性都是允许的。
+// 它极有可能掩盖了真正的类型错误，所以如果不是非常确定，就不要使用 as any
+
+// 5.将 any 断言为一个具体的类型
+// function getCacheData(key: string): any {
+//   return (window as any).cache[key];
+//   // return (window as any)['cache'][key];
+// }
+// (window as any).cache = {
+//   tom: {
+//     name: 'tom',
+//     age: 11,
+//     run() {
+//       console.log('tom can run...');
+//     }
+//   },
+//   jack: {
+//     name: 'jack',
+//     age: 12,
+//     eat() {
+//       console.log('jack can eat...');
+//     }
+//   }
+// };
+// interface Tom {
+//   name: string;
+//   age: number;
+//   run(): void;
+// }
+// interface Jack {
+//   name: string;
+//   age: number;
+//   eat(): void;
+// }
+// const res1 = getCacheData('tom') as Tom;
+// res1.run();
+// const res2 = getCacheData('jack') as Jack;
+// res2.eat();
+// 上面的例子中，我们调用完 getCacheData 之后，立即将它断言为 Cat 类型。这样的话明确了 tom 的类型，后续对 tom 的访问时就有了代码补全，提高了代码的可维护性。
+
+
+// 6.类型断言的限制
