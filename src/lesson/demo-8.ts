@@ -201,5 +201,81 @@ export {};
 // res2.eat();
 // 上面的例子中，我们调用完 getCacheData 之后，立即将它断言为 Cat 类型。这样的话明确了 tom 的类型，后续对 tom 的访问时就有了代码补全，提高了代码的可维护性。
 
-
 // 6.类型断言的限制
+// interface Animal {
+//   name: string;
+// }
+// interface Cat {
+//   name: string;
+//   run(): void;
+// }
+// // interface Cat extends Animal {
+// //   run(): void;
+// // }
+
+// function testAnimal(animal: Animal) {
+//   return animal as Cat;
+// }
+// function testCat(cat: Cat) {
+//   return cat as Animal;
+// }
+
+// let tom: Cat = {
+//   name: 'Tom',
+//   run: () => {
+//     console.log('cat run');
+//   }
+// };
+// let animal: Animal = tom;
+// console.log('animal', animal);
+
+// 7.双重断言
+// interface Cat {
+//   run(): void;
+// }
+
+// // interface Fish {
+// //   swim(): void;
+// // }
+
+// // interface Fish {
+// //   swim(): void;
+// //   run(): void;
+// // }
+
+// interface Fish extends Cat {
+//   swim(): void;
+// }
+
+// class Cat {
+//   run() {
+//     console.log('cat can run');
+//   }
+// }
+
+// class Fish extends Cat {
+//   swim() {
+//     console.log('fish can swim');
+//   }
+//   run() {
+//     console.log('fish can run');
+//   }
+// }
+
+// const fish = new Fish();
+// console.log('fish', fish);
+
+// function isCatFn(cat: Cat) {
+//   return cat as any as Fish;
+// }
+
+// // const cat = new Cat();
+// // const res = isCatFn(cat);
+// const res = isCatFn(fish);
+// console.log(res);
+// res.run();
+// // 若你使用了这种双重断言，那么十有八九是非常错误的，它很可能会导致运行时错误。//类型“Fish”上不存在属性“run”。ts(2339)
+// // 除非迫不得已，千万别用双重断言。
+
+
+// 8.类型断言 vs 类型转换
