@@ -78,48 +78,83 @@ export {};
 
 // 3.将一个父类断言为更加具体的子类
 // 当类之间有继承关系时，类型断言也是很常见的：
-class ApiError extends Error {
-  code: number = 0;
-}
-class HttpError extends Error {
-  statusCode: string = '';
-}
 
-interface ApiError extends Error {
-  code: number;
-}
-interface HttpError extends Error {
-  statusCode: string;
-}
-// let error = new ApiError('666');
-// console.dir(error)
-// console.log('error instanceof Error', error instanceof Error)
+// 3.1
+// class ApiError extends Error {
+//   code: number = 0;
+// }
+// class HttpError extends Error {
+//   statusCode: string = '';
+// }
 
-function isApiErrorFn(error: Error) {
-  if (typeof (error as ApiError).code === 'number') {
-  // if (error instanceof ApiError) {
-    // return true;
-    return 'ApiError 111';
-    } else if (typeof (error as HttpError).statusCode === 'string') {
-  // } else if (error instanceof HttpError) {
-    // return true;
-    return 'HttpError 222';
-  }
-  return 'Error 333';
-  // return false;
-}
-const err1 = new Error('i am error 1');
-const err2 = new ApiError('i am error 2');
-const err3 = new HttpError('i am error 3');
-// console.dir(err1);
-// console.dir(err2);
-// console.dir(err3);
-const res1 = isApiErrorFn(err1);
-const res2 = isApiErrorFn(err2);
-const res3 = isApiErrorFn(err3);
-// console.log('err1:', err1);
-console.log('res1:', res1);
-// console.log('err2:', err2);
-console.log('res2:', res2);
-// console.log('err3:', err3);
-console.log('res3:', res3);
+// interface ApiError extends Error {
+//   code: number;
+// }
+// interface HttpError extends Error {
+//   statusCode: string;
+// }
+
+// function isApiErrorFn(error: Error) {
+//   if (typeof (error as ApiError).code === 'number') {
+//   // if (error instanceof ApiError) {
+//     // return true;
+//     return 'ApiError 111';
+//     } else if (typeof (error as HttpError).statusCode === 'string') {
+//   // } else if (error instanceof HttpError) {
+//     // return true;
+//     return 'HttpError 222';
+//   }
+//   return 'Error 333';
+//   // return false;
+// }
+// const err1 = new Error('i am error 1');
+// const err2 = new ApiError('i am error 2');
+// const err3 = new HttpError('i am error 3');
+// // console.dir(err1);
+// // console.dir(err2);
+// // console.dir(err3);
+// const res1 = isApiErrorFn(err1);
+// const res2 = isApiErrorFn(err2);
+// const res3 = isApiErrorFn(err3);
+// // console.log('err1:', err1);
+// console.log('res1:', res1);
+// // console.log('err2:', err2);
+// console.log('res2:', res2);
+// // console.log('err3:', err3);
+// console.log('res3:', res3);
+
+// 3.2
+// class ApiError extends Error {
+//   code: number = 0;
+// }
+// class HttpError extends Error {
+//   statusCode: string = '';
+// }
+
+// interface ApiError extends Error {
+//   code: number;
+// }
+// interface HttpError extends Error {
+//   statusCode: string;
+// }
+
+// function isApiErrorFn(error: Error) {
+//   if (typeof (error as ApiError).code === 'number') {
+//     return 'ApiError 111';
+//   } else if (typeof (error as HttpError).statusCode === 'string') {
+//     return 'HttpError 222';
+//   }
+//   return 'Error 333';
+// }
+// const err1 = new Error('i am error 1');
+// const err2 = new ApiError('i am error 2');
+// const err3 = new HttpError('i am error 3');
+// const res1 = isApiErrorFn(err1);
+// const res2 = isApiErrorFn(err2);
+// const res3 = isApiErrorFn(err3);
+// console.log('res1:', res1);
+// console.log('res2:', res2);
+// console.log('res3:', res3);
+
+
+// 4.将任何一个类型断言为 any
