@@ -277,5 +277,35 @@ export {};
 // // 若你使用了这种双重断言，那么十有八九是非常错误的，它很可能会导致运行时错误。//类型“Fish”上不存在属性“run”。ts(2339)
 // // 除非迫不得已，千万别用双重断言。
 
-
 // 8.类型断言 vs 类型转换
+// function getCacheData(key: string): any {
+//   return (window as any).cache[key];
+// }
+// interface Cat {
+//   name: string;
+//   run(): void;
+// }
+// // const tom = getCacheData('tom') as Cat;
+// const tom: Cat = getCacheData('tom');
+// console.log('tom', tom);
+// tom.run();
+
+// interface Animal {
+//   name: string;
+// }
+// interface Cat {
+//   name: string;
+//   run(): void;
+// }
+// const animal: Animal = {
+//   name: 'tom'
+// };
+// console.log('animal', animal)
+// let tom = animal as Cat;
+// console.log('tom', tom);
+// let tom1:Cat = animal; //类型 "Animal" 中缺少属性 "run"，但类型 "Cat" 中需要该属性。ts(2741)
+// console.log('tom1', tom1)
+// 在上面的例子中，由于 Animal 兼容 Cat，故可以将 animal 断言为 Cat 赋值给 tom。
+
+
+// TypeScript 是结构类型系统，类型之间的对比只会比较它们最终的结构，而会忽略它们定义时的关系
