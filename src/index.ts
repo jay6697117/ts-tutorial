@@ -7,3 +7,4 @@
 // import('./lesson/demo-6');
 // import('./lesson/demo-7');
 import('./lesson/demo-8');
+import('./lesson/demo-9');
