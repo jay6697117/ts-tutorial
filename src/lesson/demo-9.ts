@@ -81,19 +81,33 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
 // loggingIdentity(7);
 loggingIdentity<string>('7'); */
 
-
 // 多个类型参数之间也可以互相约束：
-// function copyFields<T extends S, S>(target: T, source: S): T {
-//   for (let key in source) {
-//       target[key] = (<T>source)[key];
-//   }
-//   return target;
-// }
+function copyFields<T extends S, S>(target: T, source: S): T {
+  for (let key in source) {
+      target[key] = (<T>source)[key];
+  }
+  return target;
+}
 
+let x = { a: 1, b: 2, c: 3, d: 4 };
 
-function identity<T>(arg: T): T {
+console.log(copyFields(x, { b: 10, d: 20 }));
+// 上例中，我们使用了两个类型参数，其中要求 T 继承 U，这样就保证了 U 上不会出现 T 中不存在的字段。
+
+/* function identity<T>(arg: T): T {
   return arg;
 }
+let identity1 = function <T>(arg: T): T {
+  return arg;
+};
+let identity2 = <T>(arg: T): T => arg;
 
 let myIdentity: <U>(arg: U) => U = identity;
 console.log(myIdentity);
+
+let mySum: (x: number, y: number) => number = function (x: number, y: number): number {
+  return x + y;
+}; */
+// 注意不要混淆了 TypeScript 中的 => 和 ES6 中的 =>。
+// 在 TypeScript 的 "类型定义" 中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。
+// 在 ES6 中，=> 叫做箭头函数，应用十分广泛，可以参考 ES6 中的箭头函数。
