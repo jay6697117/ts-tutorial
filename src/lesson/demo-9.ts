@@ -1,3 +1,5 @@
+import { inflate } from 'zlib';
+
 export {};
 
 // (一): 泛型
@@ -81,19 +83,69 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
 // loggingIdentity(7);
 loggingIdentity<string>('7'); */
 
-// 多个类型参数之间也可以互相约束：
+// 1.多个类型参数之间也可以互相约束：
+// 1.1 例子
 function copyFields<T extends S, S>(target: T, source: S): T {
   for (let key in source) {
-      target[key] = (<T>source)[key];
+    target[key] = (<T>source)[key];
   }
   return target;
 }
 
 let x = { a: 1, b: 2, c: 3, d: 4 };
+let y = { b: 10, d: 20 };
 
-console.log(copyFields(x, { b: 10, d: 20 }));
+console.log(copyFields(x, y));
+
+console.log('-----------------------');
+
+interface T1 extends S1 {
+  c: number;
+  d: boolean;
+}
+interface S1 {
+  a: string;
+  b: string;
+}
+
+let target: T1 = { a: '333', b: '444', c: 555, d: false };
+let source: S1 = { a: '111', b: '222' };
+console.log('target:', target);
+console.log('source:', source);
+
+function copyFieldsFn<T extends S, S>(target: T, source: S): T {
+  for (let key in source) {
+    target[key] = (<T>source)[key];
+  }
+  return target;
+}
+console.log(copyFieldsFn<T1, S1>(target, source));
+
+
+// let foo: { <T>(arg: T): void };
+// foo = function <T>(arg: T): void {
+//   console.log(arg);
+// };
+// foo(13); // 13
 // 上例中，我们使用了两个类型参数，其中要求 T 继承 U，这样就保证了 U 上不会出现 T 中不存在的字段。
 
+
+/*
+// 3. for in 循环
+for (const key in source) {
+  console.log('key', key);
+  console.log('---------------');
+  target[key] = (<T>source)[key];
+}
+source = <T>target;
+console.log('target:', target);
+console.log('source:', source);
+source = <S>target;
+console.log('target:', target);
+console.log('source:', source);
+*/
+
+// 4.TypeScript 中的 箭头 => 和 ES6 中的 箭头 => 区别
 /* function identity<T>(arg: T): T {
   return arg;
 }
