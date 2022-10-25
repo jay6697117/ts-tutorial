@@ -85,6 +85,7 @@ loggingIdentity<string>('7'); */
 
 // 1.多个类型参数之间也可以互相约束：
 // 1.1 例子
+/*
 function copyFields<T extends S, S>(target: T, source: S): T {
   for (let key in source) {
     target[key] = (<T>source)[key];
@@ -121,14 +122,14 @@ function copyFieldsFn<T extends S, S>(target: T, source: S): T {
 }
 console.log(copyFieldsFn<T1, S1>(target, source));
 
+// 上两个例子中，我们使用了两个类型参数，其中要求 T 继承 U，这样就保证了 U 上不会出现 T 中不存在的字段。
+*/
 
 // let foo: { <T>(arg: T): void };
 // foo = function <T>(arg: T): void {
 //   console.log(arg);
 // };
 // foo(13); // 13
-// 上例中，我们使用了两个类型参数，其中要求 T 继承 U，这样就保证了 U 上不会出现 T 中不存在的字段。
-
 
 /*
 // 3. for in 循环
