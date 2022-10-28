@@ -59,7 +59,7 @@ console.log('res', res); */
 //   ): void;
 // }
 
-//对象接口
+//对象形状接口
 interface Foo {
   add1(x: any, y: any): any;
   add2(x: any, y: any): any;
@@ -67,6 +67,7 @@ interface Foo {
   add(x: number, y: number): number;
 }
 
+// 函数形状接口
 interface Add {
   (x: number, y: number): number;
 }
