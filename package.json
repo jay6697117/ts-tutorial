@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development webpack serve --open",
     "build:dev": "rm -rf dist && NODE_ENV=development webpack",
     "build:prod": "rm -rf dist && NODE_ENV=production webpack",
-    "tsc": "rm -rf outDir && tsc"
+    "tsc:clean": "rm -rf outDir && tsc"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
