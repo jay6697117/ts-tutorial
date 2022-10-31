@@ -34,8 +34,7 @@ console.log('tom', tom);
 tom = ['Tom', 25];
 console.log('tom', tom) */
 
-
-// 越界的元素
+/* // 越界的元素
 // 当添加越界的元素时，它的类型会被限制为元组中每个类型的联合类型：
 let tom: [string, number];
 tom = ['hello',123]
@@ -43,4 +42,56 @@ console.log('tom 1', tom)
 tom.push('male')
 console.log('tom 2', tom)
 // tom.push(true);//类型“true”的参数不能赋给类型“string | number”的参数。ts(2345)
-// console.log('tom 3', tom)
+// console.log('tom 3', tom) */
+
+// 三.枚举
+// 枚举（Enum）类型用于取值被限定在一定范围内的场景，比如一周只能有七天，颜色限定为红绿蓝等
+
+// 三.1.单的例子
+/* enum Days {
+  Sun,
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat
+}
+console.log('Days:', Days);
+
+console.log(Days["Sun"]);
+console.log(Days["Mon"]);
+console.log(Days["Tue"]);
+console.log(Days["Wed"]);
+console.log(Days["Thu"]);
+console.log(Days["Fri"]);
+console.log(Days["Sat"]);
+
+console.log(Days[0]);
+console.log(Days[1]);
+console.log(Days[2]);
+console.log(Days[3]);
+console.log(Days[4]);
+console.log(Days[5]);
+console.log(Days[6]); */
+
+
+//三.2.手动赋值
+enum Days {Sun = 7, Mon = 1, Tue, Wed, Thu, Fri, Sat};
+console.log('Days :>> ', Days);
+
+
+/*
+var Days;
+(function (Days) {
+    Days[Days["Sun"] = 7] = "Sun";
+    Days[Days["Mon"] = 1] = "Mon";
+    Days[Days["Tue"] = 2] = "Tue";
+    Days[Days["Wed"] = 3] = "Wed";
+    Days[Days["Thu"] = 4] = "Thu";
+    Days[Days["Fri"] = 5] = "Fri";
+    Days[Days["Sat"] = 6] = "Sat";
+})(Days || (Days = {}));
+;
+console.log('Days :>> ', Days);
+*/
