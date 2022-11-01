@@ -11,6 +11,6 @@
     "alwaysStrict": true, // 以严格模式检查模块，并在每个文件里加入 'use strict'
     "outDir": "outDir", //outDir 用来指定编译后文件所在的目录
     "noEmitOnError": true, // 当有错误时不生成编译后的文件
-    "declaration":true
+    // "declaration":true
   }
 }

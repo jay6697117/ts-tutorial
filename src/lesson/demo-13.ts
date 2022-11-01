@@ -75,16 +75,14 @@ console.log(Days[4]);
 console.log(Days[5]);
 console.log(Days[6]); */
 
-
 //三.2.手动赋值
-enum Days {Sun = 7, Mon = 1, Tue, Wed, Thu, Fri, Sat};
-console.log('Days :>> ', Days);
-
+/* enum Days {Sun = 3, Mon = 1, Tue, Wed, Thu, Fri, Sat};
+console.log('Days :>> ', Days); */
 
 /*
 var Days;
 (function (Days) {
-    Days[Days["Sun"] = 7] = "Sun";
+    Days[Days["Sun"] = 3] = "Sun";
     Days[Days["Mon"] = 1] = "Mon";
     Days[Days["Tue"] = 2] = "Tue";
     Days[Days["Wed"] = 3] = "Wed";
@@ -92,6 +90,116 @@ var Days;
     Days[Days["Fri"] = 5] = "Fri";
     Days[Days["Sat"] = 6] = "Sat";
 })(Days || (Days = {}));
-;
-console.log('Days :>> ', Days);
+上面的例子中，递增到 3 的时候与前面的 Sun 的取值重复了，但是 TypeScript 并没有报错，导致 Days[3] 的值先是 "Sun"，而后又被 "Wed" 覆盖了
 */
+
+/* enum Days {
+  Sun = 7,
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat = <any>'S'
+} */
+
+/* var Days;
+(function (Days) {
+    Days[Days["Sun"] = 7] = "Sun";
+    Days[Days["Mon"] = 8] = "Mon";
+    Days[Days["Tue"] = 9] = "Tue";
+    Days[Days["Wed"] = 10] = "Wed";
+    Days[Days["Thu"] = 11] = "Thu";
+    Days[Days["Fri"] = 12] = "Fri";
+    Days["Sat"] = "S";
+})(Days || (Days = {}));
+ */
+
+/* enum Days1 {
+  Sun = 7,
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat = 'S' as any
+}
+ */
+/*
+类型断言语法:
+1. 值 as 类型
+2. <类型>值
+在 tsx 语法（React 的 jsx 语法的 ts 版）中必须使用前者，即 值 as 类型。
+形如 <Foo> 的语法在 tsx 中表示的是一个 ReactNode，在 ts 中除了表示类型断言之外，也可能是表示一个泛型。
+故建议大家在使用类型断言时，统一使用 值 as 类型 这样的语法，本书中也会贯彻这一思想。
+*/
+
+// 三.3.常数项和计算所得项
+// enum Color {Red, Green, Blue = "blue".length, Purple = 5, Gray = 6};
+
+/*
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Green"] = 1] = "Green";
+    Color[Color["Blue"] = "blue".length] = "Blue";
+})(Color || (Color = {}));
+*/
+
+// 三.4.常数枚举
+/* const enum Directions {
+  Up,
+  Down,
+  Left,
+  Right
+} */
+// const enum Directions {
+//   Up,
+//   Down,
+//   Left = 'left',
+//   Right
+// }
+// 枚举成员必须具有初始化表达式。ts(1061)
+// const directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+// console.log('directions :>> ', directions);
+
+// var directions1 = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+// console.log('directions1 :>> ', directions1);
+
+// 三.5.外部枚举
+enum Directions {
+  Up,
+  Down,
+  Left,
+  Right
+}
+const directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+// var Directions;
+// (function (Directions) {
+//     Directions[Directions["Up"] = 0] = "Up";
+//     Directions[Directions["Down"] = 1] = "Down";
+//     Directions[Directions["Left"] = 2] = "Left";
+//     Directions[Directions["Right"] = 3] = "Right";
+// })(Directions || (Directions = {}));
+// var directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+console.log('directions0 :>> ', directions0);
+
+declare enum Directions1 {
+  Up,
+  Down,
+  Left,
+  Right
+}
+const directions1 = [Directions1.Up, Directions1.Down, Directions1.Left, Directions1.Right];
+// var directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+console.log('directions1 :>> ', directions1);
+
+declare const enum Directions2 {
+  Up,
+  Down,
+  Left,
+  Right
+}
+const directions2 = [Directions2.Up, Directions2.Down, Directions2.Left, Directions2.Right];
+// var directions2 = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+console.log('directions2 :>> ', directions2);
