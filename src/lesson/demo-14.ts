@@ -145,3 +145,14 @@ console.log(Animal.age); // 输出静态属性 */
 
 
 // 三.2.TypeScript 中类的用法
+class Animal {
+  private name:string;
+  public constructor(name:string) {
+    this.name = name;
+  }
+}
+
+let a = new Animal('Jack');
+// console.log(a.name);
+// a.name = 'Tom';
+// 需要注意的是，TypeScript 编译之后的代码中，并没有限制 private 属性在外部的可访问性。
