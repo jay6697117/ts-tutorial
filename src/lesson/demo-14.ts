@@ -103,3 +103,45 @@ console.log('user 2:', user);
 console.log('user.name 2:', user.name); // John 调用 getter
 // console.log('user._name 2:', user._name);
 */
+
+// 二.静态方法
+
+/* interface Ani {
+  name: string;
+  isAnimal: (param: any) => boolean; //更好理解的写法
+  // isAnimal(param: any): boolean;
+}
+class Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  static isAnimal(param: any): boolean {
+    return param instanceof Animal;
+  }
+  isAnimal(param: any): boolean {
+    return param instanceof Animal;
+  }
+}
+let a: Ani = new Animal('Jack');
+console.log('a', a);
+console.log(Animal.isAnimal(a)); // true
+console.log(a.isAnimal(a)); // TypeError: a.isAnimal is not a function */
+
+// 三.ES7 中类的用法
+// 三.1.实例属性+静态属性
+
+/* class Animal {
+  name:string = 'Jack';
+  static age = 42;
+  constructor(nameParam:string) {
+    this.name = nameParam;
+  }
+}
+
+let a = new Animal('rose');
+console.log(a.name); // Jack
+console.log(Animal.age); // 输出静态属性 */
+
+
+// 三.2.TypeScript 中类的用法
