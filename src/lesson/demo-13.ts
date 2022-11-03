@@ -167,13 +167,13 @@ var Color;
 // console.log('directions1 :>> ', directions1);
 
 // 三.5.外部枚举
-/* enum Directions {
+enum Directions {
   Up,
   Down,
   Left,
   Right
 }
-const directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions.Right]; */
+const directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
 // var Directions;
 // (function (Directions) {
 //     Directions[Directions["Up"] = 0] = "Up";
@@ -182,9 +182,9 @@ const directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions
 //     Directions[Directions["Right"] = 3] = "Right";
 // })(Directions || (Directions = {}));
 // var directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
-// console.log('directions0 :>> ', directions0);
+console.log('directions0 :>> ', directions0);
 
-/* declare enum Directions1 {
+declare enum Directions1 {
   Up,
   Down,
   Left,
@@ -193,13 +193,13 @@ const directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions
 const directions1 = [Directions1.Up, Directions1.Down, Directions1.Left, Directions1.Right];
 // var directions0 = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
 console.log('directions1 :>> ', directions1);
- */
-// declare const enum Directions2 {
-//   Up,
-//   Down,
-//   Left,
-//   Right
-// }
-// const directions2 = [Directions2.Up, Directions2.Down, Directions2.Left, Directions2.Right];
+
+declare const enum Directions2 {
+  Up,
+  Down,
+  Left,
+  Right
+}
+const directions2 = [Directions2.Up, Directions2.Down, Directions2.Left, Directions2.Right];
 // var directions2 = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
-// console.log('directions2 :>> ', directions2);
+console.log('directions2 :>> ', directions2);
