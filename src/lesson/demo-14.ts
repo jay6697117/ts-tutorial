@@ -143,16 +143,156 @@ let a = new Animal('rose');
 console.log(a.name); // Jack
 console.log(Animal.age); // 输出静态属性 */
 
-
 // 三.2.TypeScript 中类的用法
+/*
 class Animal {
   private name:string;
   public constructor(name:string) {
     this.name = name;
   }
 }
-
 let a = new Animal('Jack');
 // console.log(a.name);
 // a.name = 'Tom';
-// 需要注意的是，TypeScript 编译之后的代码中，并没有限制 private 属性在外部的可访问性。
+// 需要注意的是，TypeScript 编译之后的代码中，并没有限制 private 属性在外部的可访问性
+ */
+
+/*
+class Animal {
+  // public name: string;
+  // private name: string;//TS2341: Property 'name' is private and only accessible within class 'Animal'
+  protected name: string;//如果是用 protected 修饰，则允许在子类中访问
+  public constructor(nameParam: string) {
+    this.name = nameParam;
+  }
+}
+class Dog extends Animal {
+  public constructor(nameParam: string) {
+    //可以把super理解为类的constructor函数
+    super(nameParam);
+    console.log('Dog this.name', this.name);
+  }
+}
+const dog = new Dog('阿黄');
+console.log('dog', dog);
+*/
+
+/*
+class Animal {
+  public name: string;
+  // public constructor(nameParam:string) {
+  // 当构造函数修饰为 private 时，该类不允许被继承或者实例化：
+  // private constructor(nameParam:string) {
+  // 当构造函数修饰为 protected 时，该类只允许被继承：
+  protected constructor(nameParam: string) {
+    this.name = nameParam;
+  }
+}
+class Cat extends Animal {
+  //无法扩展类“Animal”。类构造函数标记为私有。ts(2675)
+  constructor(nameParam: string) {
+    super(nameParam);
+  }
+}
+
+// let a = new Animal('Jack'); //类“Animal”的构造函数是私有的/受保护的，仅可在类声明中访问。ts(2673)
+// console.log('a', a);
+let c = new Cat('rose');
+console.log('c', c);
+*/
+
+// 三.3.参数属性
+/* class Animal {
+  // public name: string;
+  public constructor(private nameParam: string) {
+    console.log('constructor nameParam:', nameParam);
+    // this.name = nameParam;
+  }
+}
+
+let a = new Animal('ee');
+console.log('a:', a);
+// console.log('a.name:', a.name);
+// console.log('a.nameParam:', a.nameParam)
+
+// 修饰符和readonly还可以使用在构造函数参数中，等同于类中定义该属性同时给该属性赋值，使代码更简洁 */
+
+// 三.4.readonly
+// 只读属性关键字，只允许出现在属性声明或索引签名或构造函数中
+// 注意如果 readonly 和其他访问修饰符同时存在的话，需要写在其后面
+/*
+class Animal {
+  public readonly name:string;
+  public constructor(public readonly nameParam:string) {
+    this.name = nameParam;
+  }
+}
+let a = new Animal('Jack');
+console.log('a', a)
+console.log('a.name:', a.name); // Jack
+console.log('a.nameParam:', a.nameParam); // Jack
+// a.name = 'Tom';//无法分配到 "name" ，因为它是只读属性。ts(2540)
+// a.nameParam = 'Tom1';//无法分配到 "nameParam" ，因为它是只读属性。ts(2540)
+// index.ts(10,3): TS2540: Cannot assign to 'name' because it is a read-only property.
+*/
+
+// 三.5.抽象类
+// abstract 用于定义抽象类和其中的抽象方法
+// abstract class Animal {
+//   public name: string;
+//   public constructor(nameParam: string) {
+//     this.name = nameParam;
+//   }
+//   public abstract sayHi(): void;
+// }
+
+/* abstract class Animal {
+  public name: string;
+  public constructor(name: string) {
+    this.name = name;
+  }
+  public abstract sayHi(): string;
+}
+
+class Cat extends Animal {
+  public constructor (name: string){
+    super(name)
+  }
+  public eat() {
+    console.log(`${this.name} is eating.`);
+  }
+  public sayHi() {
+    return 'cat say hi ～～～';
+  }
+}
+
+let cat = new Cat('Tom');
+console.log('cat', cat)
+console.log(cat.sayHi()); */
+
+abstract class Animal {
+  public name: string;
+  public age: number;
+  public constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+  public abstract sayHi(): void;
+}
+
+class Cat extends Animal {
+  // 这里会默认执行
+  public constructor(name: string, age: number) {
+    console.log('arguments', arguments);
+    const args = Array.from(arguments); //最好用这个
+    console.log('args', args);
+    super(name, age);
+  }
+  public sayHi() {
+    console.log(`Meow, My name is ${this.name}`);
+  }
+}
+
+let cat = new Cat('Tom', 30);
+console.log('cat', cat);
+cat.sayHi();
