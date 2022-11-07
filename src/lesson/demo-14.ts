@@ -270,6 +270,7 @@ let cat = new Cat('Tom');
 console.log('cat', cat)
 console.log(cat.sayHi()); */
 
+/*
 abstract class Animal {
   public name: string;
   public age: number;
@@ -296,3 +297,20 @@ class Cat extends Animal {
 let cat = new Cat('Tom', 30);
 console.log('cat', cat);
 cat.sayHi();
+*/
+
+// 三.6.类的类型
+// 给类加上 TypeScript 的类型很简单，与接口类似：
+class Animal {
+  name: string;
+  constructor(nameParam: string) {
+    this.name = nameParam;
+  }
+  sayHi(): string {
+    return `My name is ${this.name}`;
+  }
+}
+
+let a: Animal = new Animal('Jack');
+console.log('a :>> ', a);
+console.log(a.sayHi()); // My name is Jack
