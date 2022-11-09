@@ -15,5 +15,5 @@
 // import('./lesson/demo-13');
 // import('./lesson/demo-14');
 // import('./lesson/demo-15');
-import('./lesson/demo-16');
-// import('./lesson/demo-17-lint');
+// import('./lesson/demo-16');
+import('./lesson/demo-17-lint');
