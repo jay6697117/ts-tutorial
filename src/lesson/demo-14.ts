@@ -1,4 +1,4 @@
-export {};
+export {}
 
 // 一.类
 /*
@@ -302,15 +302,15 @@ cat.sayHi();
 // 三.6.类的类型
 // 给类加上 TypeScript 的类型很简单，与接口类似：
 class Animal {
-  name: string;
+  name: string
   constructor(nameParam: string) {
-    this.name = nameParam;
+    this.name = nameParam
   }
   sayHi(): string {
-    return `My name is ${this.name}`;
+    return `My name is ${this.name}`
   }
 }
 
-let a: Animal = new Animal('Jack');
-console.log('a :>> ', a);
-console.log(a.sayHi()); // My name is Jack
+let a: Animal = new Animal('Jack')
+console.log('a :>> ', a)
+console.log(a.sayHi()) // My name is Jack

@@ -34,13 +34,13 @@ console.log('sentence', sentence);
 // 4.空值
 
 function alertName(): void {
-  alert('My name is Tom');
-  return undefined;
+  alert('My name is Tom')
+  return undefined
 }
 
-let unuseable1: void = undefined;
+let unuseable1: void = undefined
 // let unuseable2:void = null;
-console.log('unuseable1', unuseable1);
+console.log('unuseable1', unuseable1)
 // console.log('unuseable2', unuseable2)
 
-export default {};
+export default {}
