@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // 类型别名
 // 类型别名用来给一个类型起个新名字
@@ -9,17 +9,17 @@ type NameOrNameFunc = NameStr | NameFunc; // 联合类型
 
 function getName(p: NameOrNameFunc): NameStr {
   if (typeof p === 'string') {
-    return p
+    return p;
   } else {
-    return p()
+    return p();
   }
 }
 
-let name: NameStr = 'jay'
+let name: NameStr = 'jay';
 let nameFunc: NameFunc = function (): string {
-  return '我的名字叫: jay'
-}
+  return '我的名字叫: jay';
+};
 
-console.log(getName(name))
-console.log(getName(nameFunc))
+console.log(getName(name));
+console.log(getName(nameFunc));
 // 类型别名常用于联合类型

@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // interface Person {
 //   name: string;

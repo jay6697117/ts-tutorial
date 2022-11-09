@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // 泛型
 

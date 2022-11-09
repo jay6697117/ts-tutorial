@@ -10,8 +10,8 @@ module.exports = {
   rules: {
     // 禁止使用 var
     'no-var': 'error',
-    semi: [2, 'never'],
+    semi: [2, 'always'],
     // 优先使用 interface 而不是 type
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface']
   }
-}
+};

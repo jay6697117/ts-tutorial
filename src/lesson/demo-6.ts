@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // 1.数组的类型
 
@@ -76,5 +76,5 @@ export {}
 // sum('a', 'b');
 
 // any 在数组中的应用: 一个比较常见的做法是，用 any 表示数组中允许出现任意类型
-let list: any[] = [1, 'hello', false, [1, 2, 3], { a: 1, b: 2 }, (a: number, b: number) => a + b]
-console.log('list', list)
+let list: any[] = [1, 'hello', false, [1, 2, 3], { a: 1, b: 2 }, (a: number, b: number) => a + b];
+console.log('list', list);

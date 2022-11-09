@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // 函数的类型
 
@@ -131,16 +131,16 @@ function reverse(x: string): string; //函数定义
 function reverse(x: number | string): number | string | void {
   //函数实现
   if (typeof x === 'number') {
-    return Number(x.toString().split('').reverse().join(''))
+    return Number(x.toString().split('').reverse().join(''));
   } else if (typeof x === 'string') {
-    return x.split('').reverse().join('')
+    return x.split('').reverse().join('');
   }
 }
 
-const res1 = reverse(123)
-const res2 = reverse('hello')
-console.log('res1 :>> ', res1)
-console.log('res2 :>> ', res2)
+const res1 = reverse(123);
+const res2 = reverse('hello');
+console.log('res1 :>> ', res1);
+console.log('res2 :>> ', res2);
 
 // 上例中，我们重复定义了多次函数 reverse，前几次都是函数定义，最后一次是函数实现。在编辑器的代码提示中，可以正确的看到前两个提示。
 // 注意，TypeScript 会优先从最前面的函数定义开始匹配，所以多个函数定义如果有包含关系，需要优先把精确的定义写在前面。参考#1代码

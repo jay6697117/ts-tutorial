@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // 联合类型
 // 联合类型（Union Types）表示取值可以为多种类型中的一种。
@@ -30,10 +30,10 @@ export {}
 // 上例中，length 不是 string 和 number 的共有属性，所以会报错。
 
 // 联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型：
-let myFavoriteNumber: string | number
-myFavoriteNumber = 'seven' //推断是string
-console.log(myFavoriteNumber.length) // 5
-myFavoriteNumber = 7 //推断是number
+let myFavoriteNumber: string | number;
+myFavoriteNumber = 'seven'; //推断是string
+console.log(myFavoriteNumber.length); // 5
+myFavoriteNumber = 7; //推断是number
 // console.log(myFavoriteNumber.length); // 编译时报错: 类型“number”上不存在属性“length”。ts(2339)
 
 //总结

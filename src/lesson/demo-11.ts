@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // 内置对象
 
@@ -74,19 +74,19 @@ interface Add {
 
 let obj: Foo = {
   add1: function (x, y) {
-    return x + y
+    return x + y;
   },
   add2(x, y) {
-    return x + y
+    return x + y;
   },
   add3: function (x: number, y: number): number {
-    return x + y
+    return x + y;
   },
   add(x: number, y: number): number {
-    return x + y
+    return x + y;
   }
-}
-console.log(obj.add1(1, 2))
-console.log(obj.add2(1, 2))
-console.log(obj.add3(1, 2))
-console.log(obj.add(1, 2))
+};
+console.log(obj.add1(1, 2));
+console.log(obj.add2(1, 2));
+console.log(obj.add3(1, 2));
+console.log(obj.add(1, 2));

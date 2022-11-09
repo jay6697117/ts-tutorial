@@ -1,3 +1,3 @@
-export {}
+export {};
 
-let a: any = 111
+let a: any = 111;

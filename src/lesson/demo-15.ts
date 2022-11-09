@@ -1,4 +1,4 @@
-export {}
+export {};
 
 // 类与接口
 
@@ -129,27 +129,27 @@ console.log('temp1 :>> ', temp1); */
 // 换句话说，声明 Point 类时创建的 Point 类型只包含其中的实例属性和实例方法(实例属性在this上, 实例方法在 Point.prototype 上)：
 class Point {
   /** 静态属性 Point.origin 访问，坐标系原点 */
-  static origin = new Point(0, 0)
+  static origin = new Point(0, 0);
   /** 本质上distanceToOrigin1还是静态属性 只不过属性值是函数 */
-  static distanceToOrigin1 = () => ({})
+  static distanceToOrigin1 = () => ({});
   /** 静态方法 Point.distanceToOrigin 访问，计算与原点距离 */
   static distanceToOrigin(p: Point) {
-    console.log('distanceToOrigin p', p)
-    console.log('distanceToOrigin this', this, this === Point)
-    return Math.sqrt(p.x + p.y)
+    console.log('distanceToOrigin p', p);
+    console.log('distanceToOrigin this', this, this === Point);
+    return Math.sqrt(p.x + p.y);
   }
   /** 实例属性，x 轴的值 */
-  x: number
+  x: number;
   /** 实例属性，y 轴的值 */
-  y: number
+  y: number;
   /** 构造函数 Point.prototype上 */
   constructor(x: number, y: number) {
-    this.x = x
-    this.y = y
+    this.x = x;
+    this.y = y;
   }
   /** 实例方法 Point.prototype上，打印此点 */
   printPoint() {
-    console.log(this.x, this.y)
+    console.log(this.x, this.y);
   }
 }
 
@@ -160,26 +160,26 @@ interface PointInstanceType {
 }
 
 // const p:PointInstanceType = new Point(400, 500);
-const p: Point = new Point(400, 500)
+const p: Point = new Point(400, 500);
 
 // const temoObj: PointInstanceType = {
 const temoObj: Point = {
   x: 4,
   y: 5,
   printPoint: () => {
-    console.log(temoObj.x, temoObj.y)
+    console.log(temoObj.x, temoObj.y);
   }
-}
+};
 
-console.log('----0----')
-console.dir(p)
-console.log('----1----')
-console.dir(Point)
-console.log('----2----')
-console.dir(Point.origin)
-console.log('----3----')
-console.dir(Point.distanceToOrigin(p))
-console.log('----4----')
-console.dir(Point.distanceToOrigin(temoObj))
+console.log('----0----');
+console.dir(p);
+console.log('----1----');
+console.dir(Point);
+console.log('----2----');
+console.dir(Point.origin);
+console.log('----3----');
+console.dir(Point.distanceToOrigin(p));
+console.log('----4----');
+console.dir(Point.distanceToOrigin(temoObj));
 // 上例中最后的类型 Point 和类型 PointInstanceType 是等价的。
 // 同样的，在接口继承类的时候，也只会继承它的实例属性和实例方法。
