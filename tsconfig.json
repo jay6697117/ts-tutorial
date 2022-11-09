@@ -13,6 +13,7 @@
     "outDir": "outDir", //outDir 用来指定编译后文件所在的目录
     "noEmitOnError": true, // 当有错误时不生成编译后的文件
     // "declaration":true
-    "allowJs": true
+    "allowJs": true,
+    // "allowSyntheticDefaultImports": true
   }
 }
