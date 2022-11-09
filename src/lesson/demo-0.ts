@@ -38,9 +38,9 @@ function alertName(): void {
   return undefined;
 }
 
-let unuseable1:void = undefined;
+let unuseable1: void = undefined;
 // let unuseable2:void = null;
-console.log('unuseable1', unuseable1)
+console.log('unuseable1', unuseable1);
 // console.log('unuseable2', unuseable2)
 
 export default {};

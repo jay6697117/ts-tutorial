@@ -354,7 +354,6 @@ console.log('tom', tom)
 tom.run(); */
 // 我们通过类型声明的方式，将 tom 声明为 Cat，然后再将 any 类型的 getCacheData('tom') 赋值给 Cat 类型的 tom
 
-
 // 还有第三种方式可以解决这个问题，那就是泛型：最优解
 /*
 function getCacheData<T>(key: string): T {

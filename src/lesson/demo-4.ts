@@ -33,7 +33,7 @@ export {};
 let myFavoriteNumber: string | number;
 myFavoriteNumber = 'seven'; //推断是string
 console.log(myFavoriteNumber.length); // 5
-myFavoriteNumber = 7;//推断是number
+myFavoriteNumber = 7; //推断是number
 // console.log(myFavoriteNumber.length); // 编译时报错: 类型“number”上不存在属性“length”。ts(2339)
 
 //总结

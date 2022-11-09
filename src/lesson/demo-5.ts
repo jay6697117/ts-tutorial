@@ -135,7 +135,6 @@ export {};
 // tom.id = 9527; // 无法分配到 "id" ，因为它是只读属性。ts(2540)
 // 上例中，使用 readonly 定义的属性 id 初始化后，又被赋值了，所以报错了。
 
-
 // interface Person {
 //   readonly id: number;
 //   name: string;

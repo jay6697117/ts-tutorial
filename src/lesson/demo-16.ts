@@ -71,5 +71,4 @@ const temp1: Alarm = {
 };
 console.log('temp1:', temp1); */
 
-
 // 3.类的合并与接口的合并规则一致。
