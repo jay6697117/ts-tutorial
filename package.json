@@ -9,8 +9,8 @@
     "build:prod": "rm -rf dist && NODE_ENV=production webpack",
     "tsc:c": "rm -rf outDir && tsc",
     "lint:eslint": "eslint --cache --max-warnings 0 \"src/**/*.{js,ts}\" --fix",
-    "lint:prettier": "prettier --write  \"src/**/*.{js,ts}\"",
-    "lint": "yarn lint:eslint && yarn lint:prettier"
+    "lint:prettier": "prettier --cache --write  \"src/**/*.{js,ts}\"",
+    "lint": "yarn lint:prettier && yarn lint:eslint"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",

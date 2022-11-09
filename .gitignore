@@ -2,3 +2,4 @@
 outDir/
 node_modules
 dist
+.eslintcache
