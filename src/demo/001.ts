@@ -52,3 +52,28 @@ printResult(u, 'h2');
 printResult(n + '', 'h2'); */
 
 // 5.Null和undefined类型
+/* let u:undefined = undefined;
+let n:null = null;
+printResult(u, 'h2');
+printResult(n+'', 'h2'); */
+
+//这样写会报错 void类型不可以分给其他类型
+/* let test: void = undefined;
+let num2: string = "1";
+printResult(test, 'h2');
+printResult(num2, 'h2');
+num2 = test; */
+
+//这样是没问题的
+/* let test: null = null;
+let num2: string = '1';
+
+num2 = test;//不能将类型“null”分配给类型“string”。ts(2322) */
+
+//或者这样的
+/* let test: undefined = undefined;
+let num2: string = '1';
+num2 = test;//不能将类型“undefined”分配给类型“string”。ts(2322) */
+
+/* let n:void = null;//不能将类型“null”分配给类型“void”。ts(2322)
+printResult(n+'', 'h2'); */
