@@ -1,4 +1,4 @@
-export {};
+export default {};
 export function printResult(param: any, tag: string): void {
   const node = document.createElement(tag);
   const hr = document.createElement('hr');
