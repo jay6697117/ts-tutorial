@@ -80,7 +80,7 @@ interface Person {
   readonly a: string;
   b?: string;
   [propName: string]: any;
-  // fn?(p: any): void;
+  fn?(p?: any): void;
 }
 
 const p3: Person = {
@@ -94,7 +94,7 @@ printResult(JSON.stringify(p3), 'h1');
 // p3.a = 123; // 无法分配到 "a" ，因为它是只读属性。ts(2540)
 // p3.c = 444;
 // printResult(JSON.stringify(p3), 'h1');
-// if (p3.fn) {
-p3.fn('hello world ' + p3.c);
-p3.fn();
-// }
+if (p3.fn) {
+  p3.fn('hello world ' + p3.c);
+  p3.fn();
+}
