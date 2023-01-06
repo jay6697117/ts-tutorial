@@ -3,9 +3,9 @@
   "compilerOptions": {
     "target": "ES5",
     // "target": "ES2015",
-    // "module": "ESNext",
+    "module": "ESNext",
+    // "module":"CommonJS",
     // "module": "ES2015",
-    "module":"CommonJS",
     "strict": true, // 启用所有严格类型检查选项
     "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
     // "noImplicitAny": false, // 在表达式和声明上有隐含的 any类型时报错
