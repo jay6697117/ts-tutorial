@@ -1,5 +1,3 @@
-import { type } from 'os';
-
 export default {};
 export function printResult(param: any, tag: string = 'h1'): void {
   param = JSON.stringify(param);
