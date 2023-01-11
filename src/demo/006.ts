@@ -79,11 +79,14 @@ interface A {
 interface B {
   build: string;
 }
-const fn = (type: A & B): string => {
-  return type.run;
-};
-// const fn = (type: A | B): string => {
-//   return type.run;
+// const fn = (type: A & B): string =>  {
+//   return type.run; // type: A & B 不会报错
 // };
-// type: A & B 不会报错
-//type: A ｜ B这样写是有警告, 因为B的接口上面是没有定义run这个属性的
+// const fn = (type: A | B): string => {
+//   return type.run;//type: A ｜ B这样写是有警告, 因为B的接口上面是没有定义run这个属性的
+// };
+const fn = (type: A | B): string => {
+  return (type as A).run; //可以使用类型断言来推断他传入的是A接口的值
+  // return (<A>type).run; //可以使用类型断言来推断他传入的是A接口的值
+};
+// 需要注意的是，类型断言只能够「欺骗」TypeScript 编译器，无法避免运行时的错误，反而滥用类型断言可能会导致运行时错误
