@@ -33,6 +33,7 @@ let allDiv: NodeList = document.querySelectorAll('div');
 //读取div 这种需要类型断言 或者加个判断应为读不到返回null
 let div: HTMLElement = document.querySelector('div') as HTMLDivElement;
 document.addEventListener('click',  function (e: MouseEvent) {});
+type HTMLAppletElement = any;
 
 //dom元素的映射表
 interface HTMLElementTagNameMap {
