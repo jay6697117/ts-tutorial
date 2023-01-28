@@ -160,10 +160,19 @@ export function printResult(param: any, tag: string = 'h1'): void {
 //   wbr: HTMLElement;
 // }
 
-
 // 定义Promise
 // 如果我们不指定返回的类型TS是推断不出来返回的是什么类型
-function foo(str:string) {
-  return str;
+type strNum = string | number;
+function foo(param: strNum) {
+  return new Promise<strNum>((resolve, reject) => {
+    setTimeout(() => {
+      resolve(param);
+    }, 2000);
+  });
 }
-foo('hello, world');
+foo('hello, world').then((res) => {
+  console.log('res 1:', res);
+});
+foo(666).then((res) => {
+  console.log('res 2:', res);
+});
