@@ -7,7 +7,6 @@ export function printResult(param: any, tag: string = 'h1'): void {
   document.body.appendChild(node);
   document.body.appendChild(hr);
 }
-
 // 1.ok！那我们在TS 是如何定义类的如下图
 /* class Person {
   name: string = '默认姓名'; //默认值
@@ -25,6 +24,30 @@ export function printResult(param: any, tag: string = 'h1'): void {
 const p = new Person('zjh', 33);
 console.log('p', p);
 p.run(); */
-
 // 2.类的修饰符
 // 总共有三个 public private protected
+class Person {
+  public name: string;
+  private age: number;
+  protected some: any;
+  constructor(name: string, ages: number, some: any) {
+    this.name = name;
+    this.age = ages;
+    this.some = some;
+  }
+  run() {}
+}
+class Man extends Person {
+  constructor() {
+    super('张三', 18, 1);
+    console.log(this.some);
+  }
+  create() {
+    console.log(this.some);
+  }
+}
+let p = new Person('小满', 18, 1);
+let m = new Man();
+console.log(p.name);
+// console.log(p.age);
+// console.log(m.some);
