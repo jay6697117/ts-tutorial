@@ -50,20 +50,8 @@ interface A {
 interface B {
   type: 'bar';
 }
-// type A = {
-//   type: 'foo';
-// };
-// type B = {
-//   type: 'bar';
-// };
 type All = A | B;
-// type All = {
-//   type: 'foo' | 'bar' ;
-// };
-// interface All {
-//   type: 'foo' | 'bar';
-// }
-function handleValue(val: All) {
+function handleValue(val: All ) {
   switch (val.type) {
     case 'foo':
       const type1 = val.type;
