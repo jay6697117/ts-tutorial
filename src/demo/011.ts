@@ -44,29 +44,55 @@ console.log('str', str);
 // console.log('v3 :>> ', v3);
 //变量v1 v2 v3 的值  只能是上面valueType定义的值
 
-interface A {
-  type: 'foo';
-}
-interface B {
-  type: 'bar';
-}
-type All = A | B;
-function handleValue(val: All ) {
-  switch (val.type) {
-    case 'foo':
-      const type1 = val.type;
-      console.log('type 1:>> ', type1);
-      break;
-    case 'bar':
-      const type2 = val.type;
-      console.log('type 2:>> ', type2);
-      break;
-    default:
-      //兜底逻辑 一般是不会进入这儿如果进来了就是程序异常了
-      const exhaustiveCheck: never = val;
-      console.log('exhaustiveCheck :>> ', exhaustiveCheck);
-      break;
-  }
-}
-handleValue({ type: 'foo' });
-handleValue({ type: 'bar' });
+// interface A {
+//   type: 'foo';
+// }
+// interface B {
+//   type: 'bar';
+// }
+// type All = A | B;
+// function handleValue(val: All ) {
+//   switch (val.type) {
+//     case 'foo':
+//       const type1 = val.type;
+//       console.log('type 1:>> ', type1);
+//       break;
+//     case 'bar':
+//       const type2 = val.type;
+//       console.log('type 2:>> ', type2);
+//       break;
+//     default:
+//       //兜底逻辑 一般是不会进入这儿如果进来了就是程序异常了
+//       const exhaustiveCheck: never = val;
+//       console.log('exhaustiveCheck :>> ', exhaustiveCheck);
+//       break;
+//   }
+// }
+// handleValue({ type: 'foo' });
+// handleValue({ type: 'bar' });
+
+// interface A {
+//   type: 'foo';
+// }
+// interface B {
+//   type: 'bar';
+// }
+// interface C {
+//   type: 'bizz';
+// }
+// type All = A | B | C;
+// function handleValue(val: All) {
+//   switch (val.type) {
+//     case 'foo':
+//       break;
+//     case 'bar':
+//       break;
+//     // case 'bizz':
+//     //   break;
+//     default:
+//       //兜底逻辑 一般是不会进入这儿如果进来了就是程序异常了
+//       // 由于任何类型都不能赋值给 never 类型的变量，所以当存在进入 default 分支的可能性时，TS的类型检查会及时帮我们发现这个问题
+//       const exhaustiveCheck: never = val;
+//       break;
+//   }
+// }
