@@ -4,6 +4,8 @@
 // 注意：假值有以下6个：
 // null undefined NaN false 0 ''
 
+const { Interface } = require('readline');
+
 // let type = 'E';
 
 // let tactics = {
