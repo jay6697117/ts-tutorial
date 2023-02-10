@@ -82,7 +82,7 @@ console.log(res);
 */
 // // console.log(prop(o, 'c')); //此时就会报错发现找不到
 
-// keyof 语法
+// keyof 语法: 文章 | https://blog.csdn.net/weixin_44051815/article/details/120866862
 // 将类型对应的对象中的属性解构出来，并作为联合类型返回。
 
 // 1.直接作用 interface 类型时， interface 对应的为对象， keyof 将对象中的属性名都结构出来，并作为联合类型返回。
@@ -101,7 +101,8 @@ let test: ITest = {
 console.log('test:', test); */
 
 // 作用于数组时，将数组对应的属性全部作为联合类型返回。
-/* interface IPerson {
+/*
+interface IPerson {
   name: string;
   age: number;
   sex: 0 | 1;
@@ -118,10 +119,12 @@ let test: ITest = {
   // key: 'length' // length | concat | ...
   // key: 'push' // length | concat | ...
   key: 'pop' // length | concat | ...
-}; */
+};
+*/
 
 // 作用于类时，效果类似于对象，它将类生成的对象属性，当联合类型返回。
-/* class Person {
+/*
+class Person {
   name: string; //this上的name
   age: number; //this上的age
   sex: 0 | 1; //this上的sex
@@ -151,11 +154,13 @@ interface ITest {
 let test: ITest = {
   key: 'age' && 'name' && 'sex' && 'setName' && 'getName' // age | name | sex | setName | getName
 };
-console.log('test:', test); */
+console.log('test:', test);
+*/
 
 // 两个参数，第一个参数为对象，第二个参数为对象中的属性名，
 // 将对象中对应的属性值返回
 // object 代表所有非值类型的类型，例如 数组 对象 函数等，常用于泛型约束 xxxtype extends object
+/*
 interface T1 {
   a: string;
   b: number;
@@ -167,3 +172,31 @@ const getValue = <T extends object, K extends keyof T>(obj: T, key: K): T[K] => 
 const obj1: T1 = { a: 'hello', b: 666, c: true };
 const p1: K1 = 'a' && 'b' && 'c';
 const res: T1[K1] = getValue<T1, K1>(obj1, p1);
+console.log('res:', res)
+ */
+
+// 泛型类
+// 声明方法跟函数类似名称后面定义<类型>
+// 使用的时候确定类型new Sub<number>()
+
+class Sub<T> {
+  attr: T[] = [];
+  constructor(attrP: T[]) {
+    this.attr = attrP;
+  }
+  addAttr(a: T): T[] {
+    this.attr.push(a);
+    return this.attr;
+  }
+}
+console.log('----------------------------');
+let s = new Sub<number>([1, 2, 3]);
+s.addAttr(4);
+s.addAttr(5);
+console.log('s:', s);
+console.log('----------------------------');
+let s1 = new Sub<string>(['a', 'b', 'c']);
+s1.addAttr('d');
+s1.addAttr('e');
+console.log('s1:', s1);
+console.log('----------------------------');
