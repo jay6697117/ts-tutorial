@@ -181,6 +181,10 @@ console.log('res:', res)
 
 class Sub<T> {
   attr: T[] = [];
+  // addAttr = (a: T): T[] => {
+  //   this.attr.push(a);
+  //   return this.attr;
+  // };
   constructor(attrP: T[]) {
     this.attr = attrP;
   }
