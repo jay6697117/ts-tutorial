@@ -1,7 +1,7 @@
 {
   "include": ["src/**/*"],
   "compilerOptions": {
-    "target":"ESNext",
+    "target": "ESNext",
     // "target": "ES5",
     // "target": "ES2015",
     "module": "ESNext",
@@ -14,6 +14,7 @@
     "outDir": "outDir", //outDir 用来指定编译后文件所在的目录
     "noEmitOnError": true, // 当有错误时不生成编译后的文件
     // "declaration":true
-    "allowJs": true
+    "allowJs": true,
+    "strictNullChecks": true
   }
 }
