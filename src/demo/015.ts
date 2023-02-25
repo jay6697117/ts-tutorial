@@ -34,9 +34,13 @@ class B {
 
 class C implements A, B {
   type: boolean = false;
-  name: string  = '666';
-  changeType: () => void;
-  getName: () => string;
+  name: string = '666';
+  changeType: () => void = () => {
+    this.type = !this.type;
+  };
+  getName: () => string = () => {
+    return this.name;
+  };
 }
 
 function Mixins(curCls: any, itemCls: any[]) {
@@ -50,8 +54,8 @@ function Mixins(curCls: any, itemCls: any[]) {
 Mixins(C, [A, B]);
 
 console.dir(C);
-const c = new C()
+const c = new C();
 
 c.changeType();
-console.log('c 1:', c)
+console.log('c 1:', c);
 console.log(c.getName());
