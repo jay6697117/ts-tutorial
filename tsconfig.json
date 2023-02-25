@@ -6,7 +6,7 @@
     "target": "ES5",
     // "module": "ESNext",
     // "module": "ES2015",
-    "module":"CommonJS",
+    "module": "CommonJS",
     "strict": true, // 启用所有严格类型检查选项
     "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
     // "noImplicitAny": false, // 在表达式和声明上有隐含的 any类型时报错
@@ -15,9 +15,9 @@
     "noEmitOnError": true, // 当有错误时不生成编译后的文件
     // "declaration":true
     "allowJs": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true
     // "noResolve":false // 设置为true不能import
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports":true
+    // "moduleResolution": "node",
+    // "allowSyntheticDefaultImports":true
   }
 }
