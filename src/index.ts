@@ -32,4 +32,7 @@
 // import('./demo/013');
 // import('./demo/014');
 // import('./demo/015');
-import('./demo/016');
+// import('./demo/016');
+
+// import('./demo/LocalStorage');
+import('./demo/StorageCustom');

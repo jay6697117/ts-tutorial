@@ -1,11 +1,10 @@
-export {};
 // 定义一个接口，用于存储数据和过期时间
 interface IStorageItem {
   value: any;
   expire: number | null;
 }
 // 定义一个类，用于封装localStorage的操作
-class LocalStorage {
+export class LocalStorage {
   // 设置数据
   static set(key: string, value: any, expire: number | null = null) {
     // 如果有过期时间，就计算出过期的时间戳
